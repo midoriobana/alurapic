@@ -1,27 +1,36 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { debounceTime, Subject } from 'rxjs';
 
-import { PhotoService } from '../photo/photo.service';
+import { Photo } from './../photo/photo';
 
 @Component({
   selector: 'app-photo-list',
   templateUrl: './photo-list.component.html'
 })
-export class PhotoListComponent implements OnInit {
+export class PhotoListComponent implements OnInit, OnDestroy {
 
-  photos: any[] = [];
+  photos: Photo[] = []
+  filter: string = ''
+  debounce: Subject<string> = new Subject<string>()
 
   constructor(
-    private photoService: PhotoService,
     private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.photos = this.activatedRoute.snapshot.data['photos']
+    this.debounce.pipe(debounceTime(300)).subscribe(filter => this.filter = filter)
+  }
 
-    const userName = this.activatedRoute.snapshot.params['userName']
+  ngOnDestroy(): void {
+    this.debounce.unsubscribe()
+  }
 
-    this.photoService
-      .listFromUser(userName)
-      .subscribe(photos => this.photos = photos);
+  onKeyUp(target : any) {
+    if(target instanceof EventTarget) {
+      var elemento = target as HTMLInputElement;
+      this.filter = elemento.value;
+    }
   }
 }
