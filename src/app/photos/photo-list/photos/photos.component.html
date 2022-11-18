@@ -4,10 +4,20 @@
 <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row">
     <div class="col-4" *ngFor="let photo of cols">
-      <ap-photo
-          [url]="photo.url"
-          [description]="photo.description">
-      </ap-photo>
+      <app-card [title]="photo.description">
+        <ap-photo
+            [url]="photo.url"
+            [description]="photo.description">
+        </ap-photo>
+        <i aria-hidden="true" class="fa-regular fa-heart"></i>
+        <small class="me-2">
+          {{ photo.likes }}
+        </small>
+        <i aria-hidden="true" class="fa-regular fa-comment"></i>
+        <small class="me-2">
+          {{ photo.comments }}
+        </small>
+      </app-card>
     </div>
   </li>
 </ol>
