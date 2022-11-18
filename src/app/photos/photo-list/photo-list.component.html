@@ -1,6 +1,9 @@
 <div class="text-center mt-3 mb-3">
   <form>
+    <i class="fa-solid fa-magnifying-glass"></i>
     <input class="rounded" type="search" placeholder="search..." autofocus (keyup)="onKeyUp($event.target)">
   </form>
 </div>
 <app-photos [photos]="photos | filterByDescription : filter"></app-photos>
+
+<app-load-button (click)="load()" [hasMore]="hasMore"></app-load-button>
