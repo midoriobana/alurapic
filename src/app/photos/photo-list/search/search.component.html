@@ -1,0 +1,8 @@
+<div class="text-center mt-3 mb-3">
+	<form>
+    <span class="position-relative">
+      <i class="fa-solid fa-magnifying-glass position-absolute top-50 translate-middle-y" style="left: 18px;"></i>
+      <input class="form-control rounded mx-auto d-inline ps-5 w-25" type="search" placeholder="pesquisar..." autofocus (keyup)="debounce.next(getValue($event))">
+    </span>
+  </form>
+</div>
