@@ -1,0 +1,15 @@
+<h4 class="text-center">Login</h4>
+<form [formGroup]="loginForm" class="need-validation mt-4" autocomplete="off" novalidate>
+  <div class="input-group">
+    <input class="form-control" placeholder="nome de usuário" autofocus formControlName="userName">
+    <invalid-feedback [field]="f['userName']"></invalid-feedback>
+  </div>
+  <div class="input-group">
+    <input type="password" class="form-control" placeholder="senha" formControlName="password">
+    <invalid-feedback [field]="f['password']"></invalid-feedback>
+  </div>
+  <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block">
+    Login
+  </button>
+</form>
+<p>Ainda não é usuário?<a>Cadastre-se agora</a></p>
