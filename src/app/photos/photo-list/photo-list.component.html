@@ -1,11 +1,5 @@
-<div class="text-center mt-3 mb-3">
-  <form>
-    <span class="position-relative">
-      <i aria-hidden="true" class="fa-solid fa-magnifying-glass position-absolute top-50 translate-middle-y" style="left: 8px;"></i>
-      <input class="form-control rounded mx-auto d-inline w-25" type="search" placeholder="pesquisar..." autofocus (keyup)="onKeyUp($event.target)" style="padding-left: 2rem;">
-    </span>
-  </form>
-</div>
-<app-photos [photos]="photos | filterByDescription : filter"></app-photos>
+<app-search (onTyping)="filter = $event" [value]="filter"></app-search>
+
+<app-photos [photos]="photos | filterByDescription: filter"></app-photos>
 
 <app-load-button (click)="load()" [hasMore]="hasMore"></app-load-button>
