@@ -4,3 +4,12 @@
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
 @import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+
+// display block faz com que o invalid-feedback do bootstrap funcione
+.input-group {
+  .ng-touched.ng-invalid {
+    ~.invalid-feedback {
+      display: block !important;
+    }
+  }
+}
