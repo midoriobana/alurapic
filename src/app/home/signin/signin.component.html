@@ -1,7 +1,7 @@
 <h4 class="text-center">Login</h4>
-<form [formGroup]="loginForm" class="need-validation mt-4" autocomplete="off" novalidate>
+<form [formGroup]="loginForm" class="need-validation mt-4" (submit)="login()" autocomplete="off" novalidate>
   <div class="input-group">
-    <input class="form-control" placeholder="nome de usuário" autofocus formControlName="userName">
+    <input #userNameInputs class="form-control" placeholder="nome de usuário" formControlName="userName">
     <invalid-feedback [field]="f['userName']"></invalid-feedback>
   </div>
   <div class="input-group">
