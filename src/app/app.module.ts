@@ -1,3 +1,5 @@
+import { HeaderModule } from './shared/components/header/header.module';
+import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -18,7 +20,9 @@ import { HomeModule } from './home/home.module';
     AppRoutingModule,
     ErrorsModule,
     FontAwesomeModule,
-    HomeModule
+    HomeModule,
+    CoreModule,
+    HeaderModule
   ],
   providers: [],
   bootstrap: [AppComponent]
