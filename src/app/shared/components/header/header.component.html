@@ -1,9 +1,14 @@
-<header class="fixed-top">
+<header>
   <nav class="navbar navbar-light bg-white">
     <a class="navbar-brand">ALURAPIC</a>
-    <div>
-      <i class="fa fa-user-circle"></i>
-      <a>{{ user?.name }}</a>
+    <div *ngIf="user$ | async as user; else login">
+      <!-- async pipe eu consigo pegar o valor da emissão desse observable -->
+      <i class="fa fa-user-circle me-1"></i>
+      <span class="me-4">{{ user.name }}</span>
+      <button class="btn btn-danger" (click)="logout()">Sair</button>
     </div>
+    <ng-template #login>
+      <a [routerLink]="['']" class="navbar-text">Faça o login</a>
+    </ng-template>
   </nav>
 </header>
