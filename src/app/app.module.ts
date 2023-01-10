@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app.routing.module';
 import { ErrorsModule } from './errors/errors.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeModule } from './home/home.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { HomeModule } from './home/home.module';
   imports: [
     BrowserModule,
     PhotosModule,
+    RouterModule,
     AppRoutingModule,
     ErrorsModule,
     FontAwesomeModule,
