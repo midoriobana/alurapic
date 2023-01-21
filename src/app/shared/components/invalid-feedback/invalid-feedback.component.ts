@@ -39,7 +39,7 @@ export class InvalidFeedbackComponent {
       this.errorMessage = `Mínimo ${field.errors.minlength.requiredLength} caracteres`
     } else if (field.errors?.maxlength) {
       this.errorMessage = `Máximo ${field.errors.minlength.requiredLength} caracteres`
-    }
+    } 
 
     return this.errorMessage != ''
   }

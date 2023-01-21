@@ -1,23 +1,27 @@
 <h4 class="text-center"> Registre-se</h4>
-
-<form class="form mt-4">
-    <div class="form-group">
-        <input  placeholder="E-mail" class="form-control" autofocus >
-    </div>
-
-    <div class="form-group">
-        <input placeholder="Nome Completo" class="form-control">
-    </div>
-
-    <div class="form-group">
-        <input placeholder="Nome de usuário" class="form-control">
-    </div>
-
-    <div class="form-group">
-        <input type="password" placeholder="Senha" class="form-control">
-    </div>
-
-    <button class="btn btn-primary btn-block">Registrar</button>
-
-    <p>Já é um usuário?<a [routerLink]="['']">Login</a></p>
+<form [formGroup]="signupForm" class="need-validation mt-4" (submit)="signup()" autocomplete="off" novalidate>
+	<div class="row px-3">
+		<div class="col-6 mx-auto">
+			<div class="input-group my-2">
+				<input placeholder="E-mail" class="form-control rounded-3" formControlName="email">
+				<invalid-feedback [field]="f['email']"></invalid-feedback>
+			</div>
+			<div class="input-group my-2">
+				<input placeholder="Nome Completo" class="form-control rounded-3" formControlName="fullName">
+				<invalid-feedback [field]="f['fullName']"></invalid-feedback>
+			</div>
+			<div class="input-group my-2">
+				<input placeholder="Nome de usuário" class="form-control rounded-3" formControlName="userName">
+				<invalid-feedback [field]="f['userName']"></invalid-feedback>
+			</div>
+			<div class="input-group my-2">
+				<input type="password" placeholder="Senha" class="form-control rounded-3" formControlName="password">
+				<invalid-feedback [field]="f['password']"></invalid-feedback>
+			</div>
+			<div class="input-group mb-2">
+				<button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary ms-auto">Registrar</button>
+			</div>
+			<p class="text-center">Já é um usuário? <a [routerLink]="['']">Login</a></p>
+		</div>
+	</div>
 </form>
