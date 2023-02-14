@@ -13,13 +13,14 @@
 			<div class="input-group my-2">
 				<input placeholder="Nome de usuário" class="form-control rounded-3" formControlName="userName">
 				<invalid-feedback [field]="f['userName']"></invalid-feedback>
+				<div *ngIf="signupForm.get('userName').valid" class="d-block valid-feedback">Usuário disponível</div>
 			</div>
 			<div class="input-group my-2">
 				<input type="password" placeholder="Senha" class="form-control rounded-3" formControlName="password">
 				<invalid-feedback [field]="f['password']"></invalid-feedback>
 			</div>
 			<div class="input-group mb-2">
-				<button type="submit" [disabled]="signupForm.invalid" class="btn btn-primary ms-auto">Registrar</button>
+				<button type="submit" [disabled]="signupForm.invalid || signupForm.pending" class="btn btn-primary ms-auto">Registrar</button>
 			</div>
 			<p class="text-center">Já é um usuário? <a [routerLink]="['']">Login</a></p>
 		</div>
