@@ -41,6 +41,8 @@ export class InvalidFeedbackComponent {
       this.errorMessage = `Máximo ${field.errors.minlength.requiredLength} caracteres`
     } else if (field.errors?.lowerCase) {
       this.errorMessage = `Letras maiúsculas não são aceitas`
+    } else if (field.errors?.userNameTaken) {
+      this.errorMessage = `Usuário já existe`
     }
     return this.errorMessage != ''
   }
