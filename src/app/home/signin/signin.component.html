@@ -1,7 +1,7 @@
 <h4 class="text-center">Login</h4>
 <form [formGroup]="loginForm" class="need-validation mt-4" (submit)="login()" autocomplete="off" novalidate>
   <div class="row px-3">
-    <div class="col-6 mx-auto">
+    <div class="col-12 mx-auto">
       <div class="input-group my-2">
         <input #userNameInputs class="form-control rounded-3" placeholder="nome de usuário" formControlName="userName">
         <invalid-feedback [field]="f['userName']"></invalid-feedback>
