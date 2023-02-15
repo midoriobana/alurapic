@@ -1,7 +1,7 @@
 <h4 class="text-center"> Registre-se</h4>
 <form [formGroup]="signupForm" class="need-validation mt-4" (submit)="signup()" autocomplete="off" novalidate>
 	<div class="row px-3">
-		<div class="col-6 mx-auto">
+		<div class="col-12 mx-auto">
 			<div class="input-group my-2">
 				<input placeholder="E-mail" class="form-control rounded-3" formControlName="email">
 				<invalid-feedback [field]="f['email']"></invalid-feedback>

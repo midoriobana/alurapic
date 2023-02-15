@@ -79,9 +79,17 @@ export class CustomValidators {
   }
 
   static lowerCaseValidator(control: AbstractControl) {
-    if(control.value.trim() && !/^[a-z0-9_\-]+$/.test(control.value)) {
+    if (control.value.trim() && !/^[a-z0-9_\-]+$/.test(control.value)) {
       return { lowerCase: true }
+    }
+    return null;
   }
-  return null;
-}
+
+  static emailValidator(control: AbstractControl) {
+    if (control.value.trim() && !/'^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'/.test(control.value)) {
+      return { email: true }
+    }
+    return null;
+  }
+
 }

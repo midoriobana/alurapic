@@ -43,6 +43,8 @@ export class InvalidFeedbackComponent {
       this.errorMessage = `Letras maiúsculas não são aceitas`
     } else if (field.errors?.userNameTaken) {
       this.errorMessage = `Usuário já existe`
+    } else if (field.errors?.email) {
+      this.errorMessage = `E-mail inválido`
     }
     return this.errorMessage != ''
   }
