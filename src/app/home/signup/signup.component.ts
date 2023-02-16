@@ -8,6 +8,7 @@ import { CustomValidators } from 'src/app/shared/commons/CustomValidators';
 
 @Component({
   selector: 'app-signup',
+  providers: [ UserNotTakenValidatorService ],
   templateUrl: './signup.component.html'
 })
 export class SignupComponent implements OnInit {
