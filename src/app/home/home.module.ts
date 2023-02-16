@@ -1,13 +1,13 @@
-import { SignupService } from './signup/signup.service';
-import { HomeRoutingModule } from './home.routing.module';
-import { HomeComponent } from './home.component';
-import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { InvalidFeedbackModule } from '../shared/components/invalid-feedback/invalid-feedback.module';
+import { RouterModule } from '@angular/router';
+import { SharedModule } from './../shared/shared.module';
+import { HomeComponent } from './home.component';
+import { HomeRoutingModule } from './home.routing.module';
 import { SigninComponent } from './signin/signin.component';
 import { SignupComponent } from './signup/signup.component';
+import { SignupService } from './signup/signup.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +19,7 @@ import { SignupComponent } from './signup/signup.component';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    InvalidFeedbackModule,
+    SharedModule,
     RouterModule,
     HomeRoutingModule 
   ],
