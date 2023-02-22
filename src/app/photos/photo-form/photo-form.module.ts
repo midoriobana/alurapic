@@ -1,3 +1,4 @@
+import { PhotoModule } from './../photo/photo.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { PhotoFormComponent } from './photo-form.component';
@@ -9,7 +10,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 	imports: [
 		CommonModule,
 		SharedModule,
-		ReactiveFormsModule
+		ReactiveFormsModule, 
+		PhotoModule
 	]
 })
 export class PhotoFormModule { }
