@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 import { PhotoFormModule } from './photo-form/photo-form.module';
 import { PhotoListModule } from './photo-list/photo-list.module';
@@ -8,7 +9,8 @@ import { PhotoModule } from './photo/photo.module';
 	imports: [
 		PhotoModule, 
 		PhotoFormModule,
-		PhotoListModule
+		PhotoListModule, 
+		SharedModule
 	]
 })
 export class PhotosModule { }
