@@ -4,23 +4,24 @@
 <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row">
     <div class="col-4" *ngFor="let photo of cols" appDarkenOnHover>
-      <app-card>
-        <app-photo [url]="photo.url" [description]="photo.description">
-        </app-photo>
-        <div class="row">
-          <div class="col-12">
-            <i aria-hidden="true" class="fa-regular fa-heart"></i>
-            <small class="me-2">
-              {{ photo.likes }}
-            </small>
-            <i aria-hidden="true" class="fa-regular fa-comment"></i>
-            <small class="me-2">
-              {{ photo.comments }}
-            </small>
+      <a [routerLink]="['/p', photo.id]">
+        <app-card>
+          <app-photo [url]="photo.url" [description]="photo.description">
+          </app-photo>
+          <div class="row">
+            <div class="col-12">
+              <i aria-hidden="true" class="fa-regular fa-heart"></i>
+              <small class="me-2">
+                {{ photo.likes }}
+              </small>
+              <i aria-hidden="true" class="fa-regular fa-comment"></i>
+              <small class="me-2">
+                {{ photo.comments }}
+              </small>
+            </div>
           </div>
-
-        </div>
-      </app-card>
+        </app-card>
+      </a>
     </div>
   </li>
 </ol>

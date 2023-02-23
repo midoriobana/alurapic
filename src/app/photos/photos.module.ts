@@ -1,3 +1,4 @@
+import { PhotoDetailsModule } from './photo-details/photo-details.module';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 
@@ -10,6 +11,7 @@ import { PhotoModule } from './photo/photo.module';
 		PhotoModule, 
 		PhotoFormModule,
 		PhotoListModule, 
+		PhotoDetailsModule,
 		SharedModule
 	]
 })
