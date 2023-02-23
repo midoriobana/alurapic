@@ -1,3 +1,4 @@
+import { PhotoDetailsComponent } from './photos/photo-details/photo-details.component';
 import { AuthGuard } from './core/auth/auth.guard';
 import { LoginGuard } from './core/auth/login.guard';
 import { NgModule } from '@angular/core';
@@ -29,6 +30,11 @@ const routes: Routes = [
 	{
 		path: 'p/add',
 		component: PhotoFormComponent,
+		canActivate: [AuthGuard]
+	},
+	{
+		path: 'p/:photoId',
+		component: PhotoDetailsComponent,
 		canActivate: [AuthGuard]
 	},
 	{

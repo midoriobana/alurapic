@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FilterByDescriptionPipe } from './filter-by-description.pipe';
 import { NgModule } from '@angular/core';
@@ -21,6 +22,7 @@ import { DarkenOnHoverModule } from 'src/app/shared/directive/darken-on-hover/da
     CommonModule,
     PhotoModule,
     SharedModule,
+    RouterModule,
     DarkenOnHoverModule
   ]
 })
