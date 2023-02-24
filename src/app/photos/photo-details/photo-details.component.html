@@ -9,7 +9,7 @@
         <p class="text-left text-break">{{photo.description}}</p>
         <hr>
       </small>
-      <app-photo-comments [photoId]="photoId"></app-photo-comments>
+      <app-photo-comments [photoId]="photoId" [allowComments]="photo.allowComments"></app-photo-comments>
     </div>
   </div>
 </div>

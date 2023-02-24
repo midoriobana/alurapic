@@ -9,7 +9,7 @@ import { PhotoComments } from './photo-comments';
   templateUrl: './photo-comments.component.html'
 })
 export class PhotoCommentsComponent implements OnInit {
-
+  @Input() allowComments: boolean
   @Input() photoId: number
   commentForm: FormGroup
   comments$: Observable<PhotoComments[]>
@@ -25,6 +25,15 @@ export class PhotoCommentsComponent implements OnInit {
     })
     this.comments$ = this.photoService.getComments(this.photoId)
   }
+  
+  save() {
+    const comment = this.commentForm.get('comment').value as string
+    this.photoService.addComment(this.photoId, comment).subscribe(() => {
+      this.commentForm.reset()
+      alert('Comentário adicionado com sucesso')
+    })
+  }
+
 
   get f() {
     return this.commentForm.controls
