@@ -1,3 +1,4 @@
+import { PhotoOwnerOnlyDirective } from './photo-owner-only/photo-owner-only.directive';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { InvalidFeedbackComponent } from './../../shared/components/invalid-feedback/invalid-feedback.component';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -18,7 +19,8 @@ import { PhotoDetailsComponent } from './photo-details.component';
   ],
   declarations: [
     PhotoDetailsComponent,
-    PhotoCommentsComponent
+    PhotoCommentsComponent,
+    PhotoOwnerOnlyDirective
   ],
   exports: [
     PhotoDetailsComponent,

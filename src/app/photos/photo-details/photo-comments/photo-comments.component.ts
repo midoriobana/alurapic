@@ -1,3 +1,4 @@
+import { switchMap, tap } from 'rxjs/operators';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
@@ -15,9 +16,9 @@ export class PhotoCommentsComponent implements OnInit {
   comments$: Observable<PhotoComments[]>
 
   constructor(
-    private photoService: PhotoService, 
+    private photoService: PhotoService,
     private fb: FormBuilder
-    ) { }
+  ) { }
 
   ngOnInit(): void {
     this.commentForm = this.fb.group({
@@ -25,15 +26,16 @@ export class PhotoCommentsComponent implements OnInit {
     })
     this.comments$ = this.photoService.getComments(this.photoId)
   }
-  
-  save() {
-    const comment = this.commentForm.get('comment').value as string
-    this.photoService.addComment(this.photoId, comment).subscribe(() => {
-      this.commentForm.reset()
-      alert('Comentário adicionado com sucesso')
-    })
-  }
 
+  save() {
+    const comment = this.commentForm.get('comment').value as string;
+    this.comments$ = this.photoService
+      .addComment(this.photoId, comment)
+      .pipe(switchMap(() => this.photoService.getComments(this.photoId)))
+      .pipe(tap(() => {
+        this.commentForm.reset()
+      }))
+  }
 
   get f() {
     return this.commentForm.controls
