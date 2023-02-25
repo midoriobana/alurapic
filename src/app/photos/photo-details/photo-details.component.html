@@ -6,7 +6,12 @@
 
     <div class="col-lg-4 p-4">
       <small>
-        <p class="text-left text-break">{{photo.description}}</p>
+        <p class="text-left break-word">{{ photo.description }}</p>
+        <div class="d-flex mb-4">
+          <a class="fa-regular fa-comment fa-xl me-2 ms-2"></a>
+          <span class="me-auto">{{ photo.comments }}</span>
+          <a PhotoOwnerOnly [ownedPhoto]="photo" (click)="remove()"><i class="fa-regular fa-trash-can fa-xl"></i></a>
+        </div>
         <hr>
       </small>
       <app-photo-comments [photoId]="photoId" [allowComments]="photo.allowComments"></app-photo-comments>
