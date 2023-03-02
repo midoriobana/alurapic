@@ -13,6 +13,7 @@ export class PhotoDetailsComponent implements OnInit {
 
   photo$: Observable<Photo>
   photoId: any
+  liked: boolean;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +25,7 @@ export class PhotoDetailsComponent implements OnInit {
   ngOnInit() {
     this.photoId = this.route.snapshot.params['photoId']
     this.photo$ = this.photoService.findById(this.photoId)
-    this.photo$.subscribe(() => {}, err => { 
+    this.photo$.subscribe(() => { }, err => {
       this.router.navigate(['not-found'])
     })
   }
@@ -36,5 +37,16 @@ export class PhotoDetailsComponent implements OnInit {
     }, err => {
       this.alertService.danger('Aconteceu um erro ao deletar a foto')
     })
+  }
+
+  like(photo: Photo) {
+    this.photoService
+      .like(photo.id)
+      .subscribe(liked => {
+        if (liked) {
+          this.liked = liked
+          this.photo$ = this.photoService.findById(photo.id)
+        }
+      })
   }
 }
