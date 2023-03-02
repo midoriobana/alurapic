@@ -4,7 +4,7 @@
 <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row">
     <div class="col-4" *ngFor="let photo of cols" appDarkenOnHover>
-      <a [routerLink]="['/p', photo.id]">
+      <a [routerLink]="['/p', photo.id]" class="text-dark text-decoration-none">
         <app-card>
           <app-photo [url]="photo.url" [description]="photo.description">
           </app-photo>
