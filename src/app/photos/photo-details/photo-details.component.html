@@ -8,6 +8,8 @@
       <small>
         <p class="text-left break-word">{{ photo.description }}</p>
         <div class="d-flex mb-4">
+          <a class="fa-regular fa-heart fa-xl" ShowIfLogged></a>
+          <a class="fa-solid fa-heart fa-xl" ShowIfLogged></a>
           <a class="fa-regular fa-comment fa-xl me-2 ms-2"></a>
           <span class="me-auto">{{ photo.comments }}</span>
           <a PhotoOwnerOnly [ownedPhoto]="photo" (click)="remove()"><i class="fa-regular fa-trash-can fa-xl"></i></a>
