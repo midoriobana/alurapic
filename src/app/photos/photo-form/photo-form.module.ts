@@ -1,3 +1,4 @@
+import { RouterModule } from '@angular/router';
 import { PhotoModule } from './../photo/photo.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
@@ -11,6 +12,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
 		CommonModule,
 		SharedModule,
 		ReactiveFormsModule, 
+		RouterModule,
 		PhotoModule
 	]
 })

@@ -25,21 +25,33 @@ const routes: Routes = [
 		resolve: {
 			photos: PhotoListResolverService
 		},
-		canActivate: [AuthGuard]
+		canActivate: [AuthGuard],
+		data: {
+			title: 'Página Inicial'
+		}
 	},
 	{
 		path: 'p/add',
 		component: PhotoFormComponent,
-		canActivate: [AuthGuard]
+		canActivate: [AuthGuard],
+		data: {
+			title: 'Upload de Foto'
+		}
 	},
 	{
 		path: 'p/:photoId',
 		component: PhotoDetailsComponent,
-		canActivate: [AuthGuard]
+		canActivate: [AuthGuard],
+		data: {
+			title: 'Detalhe da Foto'
+		}
 	},
 	{
 		path: 'not-found',
-		component: NotFoundComponent
+		component: NotFoundComponent,
+		data: {
+			title: '404 Erro'
+		}
 	},
 	{
 		path: '**',

@@ -32,13 +32,20 @@
           <input type="checkbox" formControlName="allowComments">
         </label>
       </div>
-      <div class="col-12">
+      <div class="col-12" *ngIf="!percentDone; else percent">
         <button type="submit" class="btn btn-primary btn-block" [disabled]="photoForm.invalid">
           Upload
         </button>
 
-        <a class="btn btn-secondary btn-block">Cancel</a>
+        <a class="btn btn-secondary btn-block" [routerLink]="['']">Cancel</a>
       </div>
+      <ng-template #percent>
+        <div class="text-center mt-4">
+          <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-label="Basic example" aria-valuenow="{{percentDone}}" aria-valuemin="0" aria-valuemax="100" [style.width]="percentDone + '%'">{{percentDone}}%</div>
+          </div>
+        </div>
+      </ng-template>
     </div>
   </form>
 </div>
