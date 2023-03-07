@@ -1,0 +1,21 @@
+<div class="p-3">
+
+  <button class="btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+    <i class="fa-solid fa-bars" tabindex="0" (keyup.space)="abrir()"></i>
+  </button>
+
+  <div class="offcanvas offcanvas-start" tabindex="0" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasRightLabel"></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body" ShowIfLogged>
+      <ul class="list-unstyled">
+        <li>
+          <a class="text-decoration-none text-dark" [routerLink]="['p','add']">Upload</a> 
+        </li>
+    </ul>
+    </div>
+  </div>
+
+</div>

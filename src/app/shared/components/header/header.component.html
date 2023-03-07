@@ -1,6 +1,7 @@
 <header>
   <nav class="navbar navbar-light bg-white px-3">
-    <a class="navbar-brand">ALURAPIC</a>
+    <app-offcanvas></app-offcanvas>
+    <a class="navbar-brand me-auto">ALURAPIC</a>
     <div *ngIf="user$ | async as user; else login">
       <!-- async pipe eu consigo pegar o valor da emissão desse observable -->
       <i class="fa fa-user-circle me-1"></i>

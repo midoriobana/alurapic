@@ -1,8 +1,8 @@
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { UserService } from './../../../core/user/user.service';
-import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/core/user/User';
+import { UserService } from './../../../core/user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -19,14 +19,13 @@ export class HeaderComponent implements OnInit {
   ) {
     this.user$ = userService.getUser()
     this.user$.subscribe(user => this.user = user)
-   }
+  }
 
   ngOnInit() {
   }
 
-  logout(){
+  logout() {
     this.userService.logout()
     this.router.navigate([''])
   }
-
 }

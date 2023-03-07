@@ -9,7 +9,7 @@ import { of, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class PhotoService {
-	endpoint = 'photos'
+	endpoint = 'photosx'
 	constructor(private http: HttpClient) { }
 
 	listFromUser(userName: string) {
@@ -42,7 +42,7 @@ export class PhotoService {
 	}
 
 	addComment(photoId: number, commentText: string) {
-		return this.http.post(`${environment.API_URL}/${this.endpoint}/${photoId}/comments`, commentText)
+		return this.http.post(`${environment.API_URL}/${this.endpoint}/${photoId}/comments`, { commentText: commentText })
 	}
 
 	removePhoto(photoId: number) {

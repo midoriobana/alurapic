@@ -1,4 +1,4 @@
 export enum LoaderType {
-  LOADING = 'loading',
-  STOPPED = 'stopped'
+  LOADING = 'loading-spinner bg-light',
+  STOPPED = 'd-none'
 }

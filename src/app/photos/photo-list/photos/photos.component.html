@@ -3,7 +3,7 @@
 </p>
 <ol class="list-unstyled">
   <li *ngFor="let cols of rows" class="row">
-    <div class="col-4" *ngFor="let photo of cols" appDarkenOnHover>
+    <div class="col-4" *ngFor="let photo of cols" DarkenOnHover>
       <a [routerLink]="['/p', photo.id]" class="text-dark text-decoration-none">
         <app-card>
           <app-photo [url]="photo.url" [description]="photo.description">

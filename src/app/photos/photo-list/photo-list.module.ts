@@ -8,7 +8,6 @@ import { LoadButtonComponent } from './load-button/load-button.component';
 import { PhotoModule } from '../photo/photo.module';
 import { SharedModule } from './../../shared/shared.module';
 import { SearchComponent } from './search/search.component';
-import { DarkenOnHoverModule } from 'src/app/shared/directive/darken-on-hover/darken-on-hover.module';
 
 @NgModule({
   declarations: [
@@ -22,8 +21,7 @@ import { DarkenOnHoverModule } from 'src/app/shared/directive/darken-on-hover/da
     CommonModule,
     PhotoModule,
     SharedModule,
-    RouterModule,
-    DarkenOnHoverModule
+    RouterModule
   ]
 })
 export class PhotoListModule { }

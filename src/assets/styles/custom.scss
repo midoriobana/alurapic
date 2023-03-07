@@ -17,3 +17,24 @@
 * {
   font-family: "Inter", Arial, Helvetica, sans-serif;
 }
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  z-index: 9999;
+}
+
+@keyframes progress {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+.stopped {
+  display: none;
+}

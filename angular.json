@@ -18,6 +18,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "allowedCommonJsDependencies": [
+              "stacktrace-js"
+           ],
             "outputPath": "dist/alurapic",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -33,7 +36,8 @@
               "node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss"
             ],
             "scripts": [
-              "node_modules/@fortawesome/fontawesome-free/js/all.js"
+              "node_modules/@fortawesome/fontawesome-free/js/all.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.js"
             ]
           },
           "configurations": {
