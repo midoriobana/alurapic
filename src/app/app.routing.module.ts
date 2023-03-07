@@ -8,6 +8,7 @@ import { NotFoundComponent } from './errors/not-found/not-found.component';
 import { PhotoFormComponent } from './photos/photo-form/photo-form.component';
 import { PhotoListResolverService } from './photos/photo-list/photo-list-resolver.service';
 import { PhotoListComponent } from './photos/photo-list/photo-list.component';
+import { GlobalErrorsComponent } from './shared/components/global-errors/global-errors.component';
 
 const routes: Routes = [
 	{
@@ -47,10 +48,17 @@ const routes: Routes = [
 		}
 	},
 	{
+		path: 'error',
+		component: GlobalErrorsComponent,
+		data: {
+			title: 'Erro'
+		}
+	},
+	{
 		path: 'not-found',
 		component: NotFoundComponent,
 		data: {
-			title: '404 Erro'
+			title: 'Não encontrado'
 		}
 	},
 	{

@@ -1,14 +1,14 @@
-import { Router } from '@angular/router';
-import { SignupService } from './signup.service';
-import { NewUser } from './NewUser';
-import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
-import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { CustomValidators } from 'src/app/shared/commons/CustomValidators';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CustomValidators, userNamePasswordValidator } from 'src/app/shared/commons/CustomValidators';
+import { NewUser } from './NewUser';
+import { SignupService } from './signup.service';
+import { UserNotTakenValidatorService } from './user-not-taken.validator.service';
 
 @Component({
   selector: 'app-signup',
-  providers: [ UserNotTakenValidatorService ],
+  providers: [UserNotTakenValidatorService],
   templateUrl: './signup.component.html'
 })
 export class SignupComponent implements OnInit {
@@ -22,13 +22,12 @@ export class SignupComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const fn = this.userNotTakenValidatorService.checkUserNameTaken()
     this.signupForm = this.fb.group({
       email: ['', Validators.compose([Validators.required, Validators.email, CustomValidators.validadorEmail])],
       fullName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(40)]],
       userName: ['', Validators.compose([Validators.required, CustomValidators.lowerCaseValidator, Validators.minLength(2), Validators.maxLength(30)]), this.userNotTakenValidatorService.checkUserNameTaken()],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(14)]]
-    })
+    }, {validator: userNamePasswordValidator})
   }
 
   get f() {
@@ -37,10 +36,11 @@ export class SignupComponent implements OnInit {
 
   signup() {
     const newUser = this.signupForm.getRawValue() as NewUser
-    this.signupService
-    .signup(newUser)
-    .subscribe(()=> this.router.navigate(['']),
-    err => console.log(err))
+    if (this.signupForm.valid && !this.signupForm.pending) {
+      this.signupService
+        .signup(newUser)
+        .subscribe(() => this.router.navigate(['']),
+          err => console.log(err))
+    } else this.signupForm.markAllAsTouched()
   }
-
 }

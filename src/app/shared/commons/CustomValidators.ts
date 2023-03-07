@@ -1,4 +1,4 @@
-import { AbstractControl, FormControl, ValidationErrors, ValidatorFn } from '@angular/forms';
+import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn } from "@angular/forms";
 
 export class CustomValidators {
   static validadorPadrao(regex: RegExp, error: ValidationErrors): ValidatorFn {
@@ -91,5 +91,20 @@ export class CustomValidators {
     }
     return null;
   }
+}
 
+export const userNamePasswordValidator: ValidatorFn = (formGroup: FormGroup) => {
+  const form = formGroup.getRawValue()
+  const userName = form.userName
+  const password = form.password
+  const control = formGroup.controls['password']
+
+  let errors = null
+
+  if (userName.trim() + password.trim() && userName == password) {
+    errors = { userNamePassword: true }
+    control.setErrors(errors)
+  } else {
+    return errors
+  }
 }

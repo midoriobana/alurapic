@@ -1,9 +1,10 @@
-import { AlertService } from './../../shared/components/alert/alert.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Photo } from '../photo/photo';
 import { PhotoService } from './../photo/photo.service';
+import { AlertService } from './../../shared/components/alert/alert.service';
+import { UserService } from './../../core/user/user.service';
 
 @Component({
   selector: 'app-photo-details',
@@ -19,7 +20,9 @@ export class PhotoDetailsComponent implements OnInit {
     private route: ActivatedRoute,
     private photoService: PhotoService,
     private router: Router,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private userService: UserService,
+    
   ) { }
 
   ngOnInit() {
@@ -33,7 +36,7 @@ export class PhotoDetailsComponent implements OnInit {
   remove() {
     this.photoService.removePhoto(this.photoId).subscribe(() => {
       this.alertService.success('Foto removida com sucesso')
-      this.router.navigate([''])
+      this.router.navigate(['/user', this.userService.getUserName()], {replaceUrl: true})
     }, err => {
       this.alertService.danger('Aconteceu um erro ao deletar a foto')
     })

@@ -1,18 +1,18 @@
-import { UtilitariosService } from './providers/utilitarios.service';
-import { DarkenOnHoverDirective } from './directive/darken-on-hover/darken-on-hover.directive';
-import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
-import { LoaderInterceptor } from './components/loader/loader.interceptor';
+import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoaderComponent } from './components/loader/loader.component';
-import { ShowIfLoggedDirective } from './directive/show-if-logged/show-if-logged.directive';
+import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { AlertComponent } from './components/alert/alert.component';
 import { CardComponent } from './components/card/card.component';
-import { InvalidFeedbackComponent } from './components/invalid-feedback/invalid-feedback.component';
-import { RouterModule } from '@angular/router';
 import { FooterComponent } from './components/footer/footer.component';
-import { CommonModule } from '@angular/common';
-import { NgModule, ErrorHandler } from '@angular/core';
+import { GlobalErrorsComponent } from './components/global-errors/global-errors.component';
 import { HeaderComponent } from './components/header/header.component';
+import { InvalidFeedbackComponent } from './components/invalid-feedback/invalid-feedback.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { LoaderInterceptor } from './components/loader/loader.interceptor';
+import { OffcanvasComponent } from './components/offcanvas/offcanvas.component';
+import { DarkenOnHoverDirective } from './directive/darken-on-hover/darken-on-hover.directive';
+import { ShowIfLoggedDirective } from './directive/show-if-logged/show-if-logged.directive';
 
 @NgModule({
   imports: [
@@ -28,7 +28,8 @@ import { HeaderComponent } from './components/header/header.component';
     ShowIfLoggedDirective,
     DarkenOnHoverDirective,
     LoaderComponent,
-    OffcanvasComponent
+    OffcanvasComponent,
+    GlobalErrorsComponent
   ],
   declarations: [
     CardComponent,
@@ -39,7 +40,8 @@ import { HeaderComponent } from './components/header/header.component';
     ShowIfLoggedDirective,
     DarkenOnHoverDirective,
     LoaderComponent,
-    OffcanvasComponent
+    OffcanvasComponent,
+    GlobalErrorsComponent
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
