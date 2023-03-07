@@ -1,3 +1,5 @@
-<p>
-  loader works!
-</p>
+<div [ngClass]="loading$ | async" role="status" class="loading col align-items-center justify-content-center w-100 vh-100 bg-dark bg-opacity-75">
+  <div class="spinner-border text-primary" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+</div>

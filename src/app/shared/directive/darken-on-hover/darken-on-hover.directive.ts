@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Input, Renderer2 } from '@angular/core';
 
 @Directive({
-  selector: '[appDarkenOnHover]'
+  selector: '[DarkenOnHover]'
 })
 
 export class DarkenOnHoverDirective {
@@ -9,16 +9,16 @@ export class DarkenOnHoverDirective {
   @Input() brightness = '70%';
 
   constructor(
-    private el: ElementRef,
-    private render: Renderer2
+    private element: ElementRef,
+    private renderer: Renderer2
   ) { }
 
   @HostListener('mouseover')
   darkenOn() {
-    this.render.setStyle(this.el.nativeElement, 'filter', `brightness(${this.brightness})`);
+    this.renderer.setStyle(this.element.nativeElement, 'filter', `brightness(${this.brightness})`);
   }
   @HostListener('mouseleave')
   darkenOff() {
-    this.render.setStyle(this.el.nativeElement, 'filter', 'brightness(100%)');
+    this.renderer.setStyle(this.element.nativeElement, 'filter', 'brightness(100%)');
   }
 }

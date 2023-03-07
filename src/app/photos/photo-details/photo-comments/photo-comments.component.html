@@ -15,10 +15,10 @@
 	<form [formGroup]="commentForm" (submit)="save()">
 		<div class="input-group">
 			<p *ngIf="!allowComments">Os comentários dessa publicação foram desabilitados</p>
-			<textarea class="form-control" formControlName="comment" *ngIf="allowComments"></textarea>
+			<textarea class="form-control me-3 rounded-2" formControlName="comment" *ngIf="allowComments"  style="resize: none"></textarea>
 			<invalid-feedback [field]="f['comment']"></invalid-feedback>
 			<div class="input-group-append" *ngIf="allowComments">
-				<button type="submit" class="btn btn-primary pull-left" [disabled]="commentForm.invalid">Publicar</button>
+				<button type="submit" class="btn btn-primary" [disabled]="commentForm.invalid">Publicar</button>
 			</div>
 		</div>
 	</form>
