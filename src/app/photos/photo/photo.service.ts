@@ -9,7 +9,7 @@ import { of, throwError } from 'rxjs';
 
 @Injectable({ providedIn: 'root' })
 export class PhotoService {
-	endpoint = 'photosx'
+	endpoint = 'photos'
 	constructor(private http: HttpClient) { }
 
 	listFromUser(userName: string) {

@@ -45,6 +45,8 @@ export class InvalidFeedbackComponent {
       this.errorMessage = `Usuário já existe`
     } else if (field.errors?.email) {
       this.errorMessage = `E-mail inválido`
+    } else if (field.errors?.userNamePassword) {
+      this.errorMessage = `A senha não pode ser igual ao nome de usuário`
     }
     return this.errorMessage != ''
   }
