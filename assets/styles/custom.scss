@@ -1,0 +1,40 @@
+@import "variables";
+
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/regular.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/solid.scss";
+@import "../../../node_modules/@fortawesome/fontawesome-free/scss/brands.scss";
+
+// display block faz com que o invalid-feedback do bootstrap funcione
+.input-group {
+  .ng-touched.ng-invalid {
+    ~.invalid-feedback {
+      display: block !important;
+    }
+  }
+}
+
+* {
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+}
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: grid;
+  z-index: 9999;
+}
+
+@keyframes progress {
+  0% {
+      width: 0;
+  }
+  100% {
+      width: 100%;
+  }
+}
+
+.stopped {
+  display: none;
+}
